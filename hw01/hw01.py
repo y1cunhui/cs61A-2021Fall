@@ -10,9 +10,9 @@ def a_plus_abs_b(a, b):
     5
     """
     if b < 0:
-        f = add
-    else:
         f = sub
+    else:
+        f = add
     return f(a, b)
 
 
@@ -65,13 +65,17 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
-    
+    counter = n-1
+    while counter >= 1:
+        if n%counter == 0:
+            return counter
+        counter -= 1
 
 
 def limited(x, z, limit):
     """Logic that is common to invert and change."""
     if x != 0:
-        return min(z, limit)
+        return min(z/x, limit)
     else:
         return limit
 
@@ -91,7 +95,7 @@ def invert_short(x, limit):
     >>> invert_short(x, 100)  # No error, even though 1/x divides by 0!
     100
     """
-    return limited(x, 1 / x, limit)
+    return limited(x, 1, limit)
 
 
 def change_short(x, y, limit):
@@ -109,7 +113,7 @@ def change_short(x, y, limit):
     >>> change_short(x, y, 100)  # No error, even though abs(y - x) / x divides by 0!
     100
     """
-    return limited(x, abs(y - x) / x, limit)
+    return limited(x, abs(y - x), limit)
 
 
 def invert_and_change_syntax_check():
@@ -141,6 +145,16 @@ def hailstone(n):
     7
     """
     "*** YOUR CODE HERE ***"
+    counter = 1
+    while n!=1:
+        print(n)
+        counter += 1
+        if n % 2:
+            n = n * 3 + 1
+        else:
+            n = n // 2
+    print(1)
+    return counter 
 
 
 "*** YOUR CODE HERE ***"
