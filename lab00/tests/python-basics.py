@@ -7,20 +7,16 @@ test = {
         {
           'code': r"""
           >>> 10 + 2
-          4d9a9f010a771e1434934b7e874ade0f
-          # locked
+          12
           >>> 7 / 2
-          c4a5533ecee83953f8fa3965bd6d64cc
-          # locked
+          3.5
           >>> 7 // 2
-          be9b9b860e53fef39d5863d61f03d3c4
-          # locked
+          3
           >>> 7 % 2  # 7 modulo 2, the remainder when dividing 7 by 2.
-          6f717e91fe5a90641e44dc5a5368b663
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],
@@ -33,23 +29,19 @@ test = {
           'code': r"""
           >>> x = 20
           >>> x + 2
-          3d3ab69a0677d75a0ef4a99e0d2d1451
-          # locked
+          22
           >>> x
-          e1ac00f801290865dd772310ea7c60e4
-          # locked
+          20
           >>> y = 5
           >>> y = y + 3
           >>> y * 2
-          309984ef0dc06025a91b127042939a0e
-          # locked
+          16
           >>> y = y // 4
           >>> y + x
-          3d3ab69a0677d75a0ef4a99e0d2d1451
-          # locked
+          22
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         }
       ],
