@@ -32,6 +32,10 @@ def product(n, term):
     162
     """
     "*** YOUR CODE HERE ***"
+    final_ans = 1
+    for i in range(1,n+1):
+        final_ans *= term(i)
+    return final_ans
 
 
 def square(x):
@@ -63,6 +67,9 @@ def accumulate(merger, base, n, term):
     16
     """
     "*** YOUR CODE HERE ***"
+    for i in range(1,n+1):
+        base = merger(base, term(i))
+    return base 
 
 
 def summation_using_accumulate(n, term):
@@ -73,7 +80,7 @@ def summation_using_accumulate(n, term):
     >>> summation_using_accumulate(5, triple)
     45
     """
-    "*** YOUR CODE HERE ***"
+    return accumulate(add, 0, n, term)
 
 
 def product_using_accumulate(n, term):
@@ -84,7 +91,7 @@ def product_using_accumulate(n, term):
     >>> product_using_accumulate(6, triple)
     524880
     """
-    "*** YOUR CODE HERE ***"
+    return accumulate(mul, 1, n, term)
 
 
 def accumulate_syntax_check():
@@ -113,12 +120,13 @@ def successor(n):
 def one(f):
     """Church numeral 1: same as successor(zero)"""
     "*** YOUR CODE HERE ***"
+    return lambda x:f(x)
 
 
 def two(f):
     """Church numeral 2: same as successor(successor(zero))"""
     "*** YOUR CODE HERE ***"
-
+    return lambda x:f(f(x))
 
 three = successor(two)
 
@@ -136,6 +144,7 @@ def church_to_int(n):
     3
     """
     "*** YOUR CODE HERE ***"
+    return n(increment)(0)
 
 
 def add_church(m, n):
@@ -145,6 +154,7 @@ def add_church(m, n):
     5
     """
     "*** YOUR CODE HERE ***"
+    return lambda f: lambda x:m(f)(n(f)(x))
 
 
 def mul_church(m, n):
@@ -157,6 +167,12 @@ def mul_church(m, n):
     12
     """
     "*** YOUR CODE HERE ***"
+    index, ans = zero, zero
+    while church_to_int(index) != church_to_int(m):
+        ans = add_church(ans,n)
+        index = successor(index)
+    return ans
+
 
 
 def pow_church(m, n):
@@ -168,3 +184,8 @@ def pow_church(m, n):
     9
     """
     "*** YOUR CODE HERE ***"
+    index, ans = zero, one
+    while church_to_int(index) != church_to_int(n):
+        ans = mul_church(ans,m)
+        index = successor(index)
+    return ans
