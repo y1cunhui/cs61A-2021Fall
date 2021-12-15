@@ -1,0 +1,27 @@
+{
+    "name": "Lab 5",
+    "endpoint": "cal/cs61a/fa21/lab05",
+    "src": [
+        "lab05.py"
+    ],
+    "tests": {
+        "lab*.py": "doctest",
+        "tests/*.py": "ok_test"
+    },
+    "default_tests": [
+        "factors_list",
+        "flatten",
+        "distance",
+        "closer_city",
+        "berry_finder",
+        "sprout_leaves"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
