@@ -281,7 +281,8 @@ def time_per_word(words, times_per_player):
     [[6, 3, 6, 2], [10, 6, 1, 2]]
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    times = [[x[i+1]-x[i] for i in range(len(x)-1)] for x in times_per_player]
+    return match(words, times)
     # END PROBLEM 9
 
 
@@ -304,6 +305,14 @@ def fastest_words(match):
     word_indices = range(len(get_words(match)))    # contains an *index* for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
+    ans_list = [[] for k in player_indices]
+    for i in word_indices:
+        times = [time(match, j, i) for j in player_indices]
+        # print("DEBUG: times:", times)
+        # print("DEBUG: index:",times.index(min(times)))
+        ans_list[times.index(min(times))].append(word_at(match, i))
+        # print("DEBUG: ", ans_list)
+    return ans_list
     # END PROBLEM 10
 
 
