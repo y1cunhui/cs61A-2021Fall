@@ -1,0 +1,25 @@
+{
+    "name": "Homework 5",
+    "endpoint": "cal/cs61a/fa21/hw05",
+    "src": [
+        "hw05.py"
+    ],
+    "tests": {
+        "hw*.py": "doctest",
+        "tests/*.py": "ok_test"
+    },
+    "default_tests": [
+        "gen_perms",
+        "path_yielder",
+        "preorder",
+        "generate_preorder"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "analytics",
+        "unlock",
+        "grading",
+        "backup"
+    ]
+}
