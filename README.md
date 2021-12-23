@@ -5,7 +5,7 @@ Personal Study Record
 From y1cunhui
 
 ## Course info
-[course website: cs61a.org](cs61a.org)
+course website: [cs61a.org](https://cs61a.org)
 
 Language: Python
 
