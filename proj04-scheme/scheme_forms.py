@@ -133,6 +133,16 @@ def do_and_form(expressions, env):
     """
     # BEGIN PROBLEM 12
     "*** YOUR CODE HERE ***"
+    if expressions is nil:
+        return True
+    now_val = scheme_eval(expressions.first, env)
+    if is_scheme_true(now_val):
+        if expressions.rest is nil:
+            return now_val
+        else:
+            return do_and_form(expressions.rest, env)
+    else:
+        return now_val
     # END PROBLEM 12
 
 
@@ -152,6 +162,14 @@ def do_or_form(expressions, env):
     """
     # BEGIN PROBLEM 12
     "*** YOUR CODE HERE ***"
+    if expressions is nil:
+        return False
+    now_val = scheme_eval(expressions.first, env)
+    if is_scheme_true(now_val):
+        return now_val
+    else:
+        print("DEBUG: ",expressions.rest is nil)
+        return do_or_form(expressions.rest, env)
     # END PROBLEM 12
 
 
@@ -173,6 +191,9 @@ def do_cond_form(expressions, env):
         if is_scheme_true(test):
             # BEGIN PROBLEM 13
             "*** YOUR CODE HERE ***"
+            if clause.rest is nil:
+                return test
+            return eval_all(clause.rest, env)
             # END PROBLEM 13
         expressions = expressions.rest
 
@@ -194,11 +215,20 @@ def make_let_frame(bindings, env):
     BINDINGS. The Scheme list BINDINGS must have the form of a proper bindings
     list in a let expression: each item must be a list containing a symbol
     and a Scheme expression."""
+    print("DEBUG: ",bindings)
     if not scheme_listp(bindings):
         raise SchemeError('bad bindings list in let form')
     names = values = nil
     # BEGIN PROBLEM 14
     "*** YOUR CODE HERE ***"
+    while bindings != nil:
+        item = bindings.first
+        validate_form(item, 2, 2)
+        names = Pair(item.first, names)
+        values = Pair(eval_all(item.rest, env), values)
+        bindings = bindings.rest
+    validate_formals(names)
+
     # END PROBLEM 14
     return env.make_child_frame(names, values)
 
