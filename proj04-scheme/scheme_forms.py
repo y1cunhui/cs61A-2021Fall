@@ -38,7 +38,7 @@ def do_define_form(expressions, env):
         validate_form(expressions, 2, 2)  # Checks that expressions is a list of length exactly 2
         # BEGIN PROBLEM 4
         "*** YOUR CODE HERE ***"
-        print("DEBUG: ", expressions.rest)
+        # print("DEBUG: ", expressions.rest)
         env.define(signature, scheme_eval(expressions.rest.first, env))
         return signature
         # END PROBLEM 4
@@ -46,6 +46,12 @@ def do_define_form(expressions, env):
         # defining a named procedure e.g. (define (f x y) (+ x y))
         # BEGIN PROBLEM 10
         "*** YOUR CODE HERE ***"
+        formals = signature.rest
+        validate_formals(formals)
+        body = expressions.rest
+        env.define(signature.first, LambdaProcedure(formals, body, env))
+
+        return signature.first
         # END PROBLEM 10
     else:
         bad_signature = signature.first if isinstance(signature, Pair) else signature
@@ -91,6 +97,7 @@ def do_lambda_form(expressions, env):
     validate_formals(formals)
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
+    return LambdaProcedure(formals, expressions.rest, env)
     # END PROBLEM 7
 
 
@@ -248,6 +255,8 @@ def do_mu_form(expressions, env):
     validate_formals(formals)
     # BEGIN PROBLEM 11
     "*** YOUR CODE HERE ***"
+    print("DEBUG: ",expressions)
+    return MuProcedure(expressions.first, expressions.rest)
     # END PROBLEM 11
 
 
