@@ -1,0 +1,27 @@
+{
+    "name": "Homework 9",
+    "endpoint": "cal/cs61a/fa21/hw09",
+    "src": [
+        "hw09.py"
+    ],
+    "tests": {
+        "hw*.py": "doctest",
+        "tests/*.py": "ok_test"
+    },
+    "default_tests": [
+        "roman_numerals",
+        "cs_classes",
+        "match_time",
+        "wwrm",
+        "most_common_code",
+        "area_codes"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "unlock",
+        "backup"
+    ]
+}
