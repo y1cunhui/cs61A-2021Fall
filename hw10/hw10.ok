@@ -1,0 +1,27 @@
+{
+    "name": "Homework 10",
+    "endpoint": "cal/cs61a/fa21/hw10",
+    "src": [
+        "hw10.sql",
+        "hw10.lark"
+    ],
+    "tests": {
+        "tests/*.py": "ok_test"
+    },
+    "default_tests": [
+        "regex_classes",
+        "regex_grouping",
+        "regex_quantifiers",
+        "by_parent_height",
+        "size_of_dogs",
+        "sentences"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "unlock",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}
