@@ -1,0 +1,22 @@
+    
+    link: "Link(" link_first link_rest? ")"
+    
+    ?link_first: NUMBER | link
+    
+    ?link_rest: "," link
+    
+    %ignore /\s+/
+    %import common.NUMBER
+
+
+    
+    tree_node: "Tree(" label branches? ")"
+    
+    
+    ?label: NUMBER
+    
+    branches: "," "["tree_node?  ("," tree_node)* "]"
+    
+    %ignore /\s+/
+    %import common.NUMBER
+

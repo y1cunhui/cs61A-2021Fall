@@ -1,0 +1,26 @@
+{
+    "name": "Lab 12",
+    "endpoint": "cal/cs61a/fa21/lab12",
+    "src": [
+        "lab12.py",
+        "lab12.lark"
+    ],
+    "tests": {
+        "lab*.py": "doctest",
+        "tests/*.py": "ok_test"
+    },
+    "default_tests": [
+        "ebnf-grammar-wwpd",
+        "tree",
+        "linked_list",
+        "calculator_ops"
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "unlock",
+        "backup"
+    ]
+}
